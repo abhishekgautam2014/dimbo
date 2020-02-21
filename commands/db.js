@@ -11,7 +11,7 @@ class DB extends Command {
      * The words flags and aliases mean the same thing in this context 😃
      */
     static get signature() {
-        return `dbconnect`;
+        return `db:connect`;
     }
 
     /**
@@ -85,6 +85,13 @@ class DB extends Command {
             if (err) throw err;
             console.log(err);
         });
+        try {
+            await execa(`npx sequelize-cli db:create`)
+        } catch (error) {
+            console.log(error)
+        }
+
+        console.log(`${data.development.database} databse created.`)
     }
 }
 

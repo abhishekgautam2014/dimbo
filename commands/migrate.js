@@ -8,15 +8,13 @@ const fs = require("fs");
 const insertLine = require("insert-line");
 const templates = require("../templates/controllerTemplate");
 
-class Migration extends Command {
+class Migrate extends Command {
     /**
      * The method signature describes the comannd, arguments and flags/aliases
      * The words flags and aliases mean the same thing in this context 😃
      */
     static get signature() {
-        return `db:migration
-      { name: New Migration }
-    `;
+        return `db:migrate`;
     }
 
     /**
@@ -24,7 +22,7 @@ class Migration extends Command {
      * about the command
      */
     static get description() {
-        return "Create Migration";
+        return "Run Migration";
     }
 
     /**
@@ -35,11 +33,11 @@ class Migration extends Command {
      */
     async handle({ name }) {
         try {
-            await execa(`npx sequelize-cli migration:generate --name ${name}`)
+            await execa(`npx sequelize-cli db:migrate`)
         } catch (error) {
             console.log(error)
         }
     }
 }
 
-module.exports = Migration;
+module.exports = Migrate;

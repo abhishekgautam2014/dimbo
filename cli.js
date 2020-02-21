@@ -9,6 +9,8 @@ Ace.addCommand(require('./commands/init'))
 Ace.addCommand(require('./commands/db'))
 Ace.addCommand(require('./commands/model'))
 Ace.addCommand(require('./commands/migration'))
+Ace.addCommand(require('./commands/migrate'))
+
 
 
 
