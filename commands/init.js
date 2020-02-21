@@ -1,0 +1,86 @@
+"use strict";
+
+const { Command } = require("@adonisjs/ace");
+const makeDir = require("make-dir");
+const path = require("path");
+const fs = require("fs");
+const execa = require('execa');
+const ora = require("ora");
+const Listr = require('listr');
+const templates = require("../templates/controllerTemplate");
+
+class Init extends Command {
+    /**
+     * The method signature describes the comannd, arguments and flags/aliases
+     * The words flags and aliases mean the same thing in this context 😃
+     */
+    static get signature() {
+        return `init`;
+    }
+
+    /**
+     * Use this description to provide additional details
+     * about the command
+     */
+    static get description() {
+        return "Setup Project Structure.";
+    }
+
+    /**
+     * Handle the command
+     *
+     * @param {*} args   arguments object
+     * @param {*} flags  arguments object
+     */
+    async handle({ name }) {
+
+        const tasks = new Listr([
+            {
+                title: 'Creating Routing File',
+                task: async () => {
+                    const controllerPath = await makeDir(
+                        path.dirname(require.main.filename) + "/router"
+                    );
+                    var routeStream = fs.createWriteStream(controllerPath + "/" + "router.js");
+                    routeStream.write(templates.mainRouteTemplate(name));
+                    routeStream.end();
+                }
+            },
+            {
+                title: 'Installing Sequelize',
+                task: async () => {
+                    try {
+                        await execa("npm install sequelize")
+                    } catch (error) {
+                        console.log(error)
+                    }
+                }
+            },
+            {
+                title: 'Installing Sequelize Cli',
+                task: async () => {
+                    try {
+                        await execa("npm install sequelize-cli")
+                    } catch (error) {
+                        console.log(error)
+                    }
+                }
+            },
+            {
+                title: 'Setting up your project',
+                task: async () => {
+                    try {
+                        await execa("npx sequelize-cli init")
+                    } catch (error) {
+                        console.log(error)
+                    }
+                }
+            }
+        ])
+        tasks.run().catch(err => {
+            console.error(err);
+        });
+    }
+}
+
+module.exports = Init;
