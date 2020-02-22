@@ -159,7 +159,7 @@ server.on("error", err => {
             server.listen(port);
         });
     } else {
-        console.log({ err: "Server error " + err" });
+        console.log({ err: "Server error " + err });
     }
 });
     `
