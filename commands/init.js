@@ -3,11 +3,10 @@
 const { Command } = require("@adonisjs/ace");
 const makeDir = require("make-dir");
 const path = require("path");
-// const fs = require("fs");
+const fs = require("fs");
 const execa = require('execa');
 const ora = require("ora");
 const Listr = require('listr');
-var fs = require('file-system');
 const templates = require("../templates/controllerTemplate");
 
 class Init extends Command {
@@ -41,9 +40,13 @@ class Init extends Command {
                 task: async () => {
 
                     fs.writeFile('router/router.js', templates.mainRouteTemplate(name), function (err) {
+                        if (err) throw err;
+                        console.log(err);
                     })
 
                     fs.writeFile('index.js', templates.indexTemplate(), function (err) {
+                        if (err) throw err;
+                        console.log(err);
                     })
                 }
             },
