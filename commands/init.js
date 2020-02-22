@@ -54,7 +54,7 @@ class Init extends Command {
                 title: 'Installing Sequelize',
                 task: async () => {
                     try {
-                        await execa("npm install sequelize sequelize-cli")
+                        await execa("npm install express cors dotenv body-parser helmet sequelize sequelize-cli")
                     } catch (error) {
                         console.log(error)
                     }

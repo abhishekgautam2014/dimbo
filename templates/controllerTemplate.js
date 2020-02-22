@@ -136,6 +136,8 @@ exports.indexTemplate = function () {
     var express = require("express");
 var cors = require("cors");
 var app = express();
+const helmet = require('helmet');
+app.use(helmet())
 app.use(cors());
 var bodyParser = require("body-parser");
 const dotenv = require("dotenv");
