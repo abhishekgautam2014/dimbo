@@ -1,7 +1,6 @@
 "use strict";
 
 const { Command } = require("@adonisjs/ace");
-const makeDir = require("make-dir");
 const path = require("path");
 const fs = require("fs");
 const insertLine = require("insert-line");
@@ -33,18 +32,20 @@ class Crud extends Command {
    * @param {*} flags  arguments object
    */
   async handle({ name }) {
-    const controllerPath = await makeDir(
-      path.dirname(require.main.filename) + "/crud/" + name
-    );
-    var controllerStream = fs.createWriteStream(
-      controllerPath + "/" + name + "Controller.js"
-    );
-    controllerStream.write(templates.controllerTemplate(name));
-    controllerStream.end();
 
-    var routeStream = fs.createWriteStream(controllerPath + "/" + name + "Router.js");
-    routeStream.write(templates.routeTemplate(name));
-    routeStream.end();
+    if (!fs.existsSync("crud/" + name)) {
+      fs.mkdirSync("crud/" + name);
+    }
+
+    fs.writeFile(`crud/${name}/${name}Controller.js`, templates.controllerTemplate(name), function (err) {
+      if (err) throw err;
+      console.log(err);
+    })
+
+    fs.writeFile(`crud/${name}/${name}Router.js`, templates.routeTemplate(name), function (err) {
+      if (err) throw err;
+      console.log(err);
+    })
 
     //write crudroutes in main route file
     var appDir = path.dirname(require.main.filename) + "/router/router.js";
