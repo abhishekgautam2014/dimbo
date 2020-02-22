@@ -44,23 +44,17 @@ class Init extends Command {
                     var routeStream = fs.createWriteStream(controllerPath + "/" + "router.js");
                     routeStream.write(templates.mainRouteTemplate(name));
                     routeStream.end();
+
+                    var indexStream = fs.createWriteStream(path.dirname(require.main.filename) + "/" + "index.js");
+                    indexStream.write(templates.indexTemplate());
+                    indexStream.end();
                 }
             },
             {
                 title: 'Installing Sequelize',
                 task: async () => {
                     try {
-                        await execa("npm install sequelize")
-                    } catch (error) {
-                        console.log(error)
-                    }
-                }
-            },
-            {
-                title: 'Installing Sequelize Cli',
-                task: async () => {
-                    try {
-                        await execa("npm install sequelize-cli")
+                        await execa("npm install sequelize sequelize-cli")
                     } catch (error) {
                         console.log(error)
                     }

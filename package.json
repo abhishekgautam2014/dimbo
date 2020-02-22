@@ -1,8 +1,11 @@
 {
-    "name": "crudbuilder",
+    "name": "crud",
     "version": "1.0.0",
     "description": "Create crud from command line",
-    "main": "index.js",
+    "main": "cli.js",
+    "bin": {
+        "nodestar": "cli.js"
+    },
     "scripts": {
         "dev": "nodemon index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
