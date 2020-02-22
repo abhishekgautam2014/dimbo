@@ -14,7 +14,7 @@ exports.controllerTemplate = function (name) {
 
     return `
 const db = require("../../models");
-const ${modelName} = db.${modelName1};    
+const ${modelName} = db.${modelName};    
     
     
 exports.index = async (req, res, next) => {

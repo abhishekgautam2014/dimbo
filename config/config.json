@@ -2,7 +2,7 @@
   "development": {
     "username": "chanlogic",
     "password": "chan#$logic@123",
-    "database": "raan",
+    "database": "crud",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "operatorsAliases": false
