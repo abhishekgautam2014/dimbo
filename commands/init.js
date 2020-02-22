@@ -3,10 +3,11 @@
 const { Command } = require("@adonisjs/ace");
 const makeDir = require("make-dir");
 const path = require("path");
-const fs = require("fs");
+// const fs = require("fs");
 const execa = require('execa');
 const ora = require("ora");
 const Listr = require('listr');
+var fs = require('file-system');
 const templates = require("../templates/controllerTemplate");
 
 class Init extends Command {
@@ -38,16 +39,12 @@ class Init extends Command {
             {
                 title: 'Creating Project Sturcture.',
                 task: async () => {
-                    const controllerPath = await makeDir(
-                        path.dirname(require.main.filename) + "/router"
-                    );
-                    var routeStream = fs.createWriteStream(controllerPath + "/" + "router.js");
-                    routeStream.write(templates.mainRouteTemplate(name));
-                    routeStream.end();
 
-                    var indexStream = fs.createWriteStream(path.dirname(require.main.filename) + "/" + "index.js");
-                    indexStream.write(templates.indexTemplate());
-                    indexStream.end();
+                    fs.writeFile('router/router.js', templates.mainRouteTemplate(name), function (err) {
+                    })
+
+                    fs.writeFile('index.js', templates.indexTemplate(), function (err) {
+                    })
                 }
             },
             {
