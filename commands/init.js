@@ -39,6 +39,10 @@ class Init extends Command {
                 title: 'Creating Project Sturcture.',
                 task: async () => {
 
+                    if (!fs.existsSync("router")) {
+                        fs.mkdirSync("router");
+                    }
+
                     fs.writeFile('router/router.js', templates.mainRouteTemplate(name), function (err) {
                         if (err) throw err;
                         console.log(err);
