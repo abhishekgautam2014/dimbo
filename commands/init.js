@@ -36,7 +36,7 @@ class Init extends Command {
 
         const tasks = new Listr([
             {
-                title: 'Creating Routing File',
+                title: 'Creating Project Sturcture.',
                 task: async () => {
                     const controllerPath = await makeDir(
                         path.dirname(require.main.filename) + "/router"
@@ -51,7 +51,7 @@ class Init extends Command {
                 }
             },
             {
-                title: 'Installing Sequelize',
+                title: 'Installing Dependencies',
                 task: async () => {
                     try {
                         await execa("npm install express cors dotenv body-parser nodemon helmet sequelize sequelize-cli")

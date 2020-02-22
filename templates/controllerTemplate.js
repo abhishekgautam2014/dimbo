@@ -132,8 +132,7 @@ module.exports = function(app) {
 }
 
 exports.indexTemplate = function () {
-    return `
-    var express = require("express");
+    return `var express = require("express");
 var cors = require("cors");
 var app = express();
 const helmet = require('helmet');
