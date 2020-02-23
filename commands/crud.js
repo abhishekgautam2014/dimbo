@@ -3,6 +3,7 @@
 const { Command } = require("@adonisjs/ace");
 const path = require("path");
 const fs = require("fs");
+const makeDir = require('make-dir');
 const insertLine = require("insert-line");
 const templates = require("../templates/controllerTemplate");
 
@@ -32,10 +33,8 @@ class Crud extends Command {
    * @param {*} flags  arguments object
    */
   async handle({ name }) {
-
-    if (!fs.existsSync("crud/" + name)) {
-      fs.mkdirSync("crud/" + name);
-    }
+    const crudPath = await makeDir(`crud/${name}`);
+    console.log(crudPath);
 
     fs.writeFile(`crud/${name}/${name}Controller.js`, templates.controllerTemplate(name), function (err) {
       if (err) throw err;
@@ -47,12 +46,14 @@ class Crud extends Command {
       console.log(err);
     })
 
-    //write crudroutes in main route file
-    var appDir = path.dirname(require.main.filename) + "/router/router.js";
-    const addRoute = `    require("../crud/${name}/${name}Router.js")(app);`
-    await insertLine(appDir).content(addRoute).at(5);
+    // const routerPath = fs.readFileSync("/router/router.js")
+    // console.log(routerPath);
+    // //write crudroutes in main route file
+    // var appDir = path.dirname(require.main.filename) + "/router/router.js";
+    // const addRoute = `    require("../crud/${name}/${name}Router.js")(app);`
+    // await insertLine(appDir).content(addRoute).at(5);
 
-    console.info(`${name} crud api created successfully.`);
+    // console.info(`${name} crud api created successfully.`);
   }
 }
 
