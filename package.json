@@ -1,16 +1,19 @@
 {
-    "name": "nodestar",
+    "name": "node-star",
     "version": "1.0.0",
     "description": "Create crud from command line",
     "main": "cli.js",
     "bin": {
-        "nodestar": "cli.js"
+        "ns": "cli.js"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
         "crud",
+        "project setup",
+        "command line setup",
+        "api boilerplate",
         "builder",
         "crudbuilder"
     ],

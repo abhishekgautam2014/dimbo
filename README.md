@@ -14,7 +14,7 @@ $ npm install nodestar
 And then you should be able to run the CLI with
 
 ```bash
-$ nodestar
+$ ns
 ```
 
 ### Usage
