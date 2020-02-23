@@ -33,27 +33,22 @@ class Crud extends Command {
    * @param {*} flags  arguments object
    */
   async handle({ name }) {
-    const crudPath = await makeDir(`crud/${name}`);
-    console.log(crudPath);
+    await makeDir(`crud/${name}`);
 
     fs.writeFile(`crud/${name}/${name}Controller.js`, templates.controllerTemplate(name), function (err) {
       if (err) throw err;
-      console.log(err);
     })
 
     fs.writeFile(`crud/${name}/${name}Router.js`, templates.routeTemplate(name), function (err) {
       if (err) throw err;
-      console.log(err);
     })
 
-    // const routerPath = fs.readFileSync("/router/router.js")
-    // console.log(routerPath);
+    const routerPath = process.cwd() + "/router/router.js";
     // //write crudroutes in main route file
-    // var appDir = path.dirname(require.main.filename) + "/router/router.js";
-    // const addRoute = `    require("../crud/${name}/${name}Router.js")(app);`
-    // await insertLine(appDir).content(addRoute).at(5);
+    const addRoute = `    require("../crud/${name}/${name}Router.js")(app);`
+    await insertLine(routerPath).content(addRoute).at(5);
 
-    // console.info(`${name} crud api created successfully.`);
+    console.info(`${name} crud api created successfully.`);
   }
 }
 
