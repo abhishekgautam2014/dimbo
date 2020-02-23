@@ -8,7 +8,7 @@ The [Nodestar] quick and easy project setup and CRUD Builder.
 Make sure you have empty Nodejs project setup by ```bash $npm init -y ```
 
 ```bash
-$ npm install @abhi/node-star
+$ npm install @abhishekgautam76/node-star
 ```
 
 And then you should be able to run the CLI with
