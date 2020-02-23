@@ -146,7 +146,7 @@ app.use(bodyParser.json());
 app.use(express.static("images"));
 require("./router/router.js")(app);
 
-var port = process.env.PORT;
+var port = process.env.PORT || 7000;
 // Create a Server
 var server = app.listen(port, function () {
     console.log("Server is running on port " + port);
