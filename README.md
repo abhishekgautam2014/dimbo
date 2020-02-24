@@ -22,7 +22,8 @@ $ ns
 ```
 Nodestar CLI
 
-command [arguments] [options]
+Usage:
+  command [arguments] [options]
 
 Global Options:
   --env          Set NODE_ENV before running the commands
@@ -31,6 +32,8 @@ Global Options:
 Available Commands:
   crud           Create CRUD APIs
   init           Setup Project Structure.
+ create
+  create:auth    Create Authentication API
  db
   db:connect     Connect you database.
   db:migrate     Run Migration
