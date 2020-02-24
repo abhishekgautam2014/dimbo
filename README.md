@@ -30,12 +30,12 @@ Global Options:
   --no-ansi      Disable colored output
 
 Available Commands:
-  crud           Create CRUD APIs
-  init           Setup Project Structure.
+  crud           Create CRUD API
+  init           Setup Project Structure
  create
   create:auth    Create Authentication API
  db
-  db:connect     Connect you database.
+  db:connect     Create your database and connect
   db:migrate     Run Migration
   db:migration   Create Migration
   db:model       Create Model
