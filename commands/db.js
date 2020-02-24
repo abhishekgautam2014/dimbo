@@ -85,8 +85,12 @@ class DB extends Command {
             if (err) throw err;
             console.log(err);
         });
-        await execa(`npx sequelize-cli db:create`)
-        console.log(`${this.icon('success')} ${data.development.database} databse created.`)
+        try {
+            await execa(`npx sequelize-cli db:create`)
+            console.log(`${this.icon('success')} ${data.development.database} databse created.`)
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 
