@@ -1,6 +1,6 @@
 exports.register = function () {
   return `var jwt = require("jsonwebtoken");
-
+var bcrypt = require("bcryptjs");
 const db = require("../models");
 const User = db.User;
 
