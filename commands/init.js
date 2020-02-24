@@ -48,7 +48,7 @@ class Init extends Command {
                         console.log(err);
                     })
 
-                    fs.writeFile('index.js', templates.indexTemplate(), function (err) {
+                    fs.writeFile('server.js', templates.indexTemplate(), function (err) {
                         if (err) throw err;
                         console.log(err);
                     })

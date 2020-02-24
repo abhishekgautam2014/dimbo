@@ -59,6 +59,12 @@ class Auth extends Command {
         const addRoute = `    require("../auth/authRouter")(app);`
         await insertLine(routerPath).content(addRoute).at(5);
 
+        try {
+            await execa(`npx sequelize-cli model:generate --name User --attributes ${fieldString}`)
+        } catch (error) {
+            console.log(error)
+        }
+
         console.info(`Authentication api created successfully.`);
     }
 }

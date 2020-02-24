@@ -13,7 +13,7 @@ exports.signup = async (req, res) => {
       password: bcrypt.hashSync(req.body.password, 8)
     });
     if (user) {
-      const token = jwt.sign({ id: user.dataValues.id }, config.secret, {
+      const token = jwt.sign({ id: user.dataValues.id }, process.env.SECRET_KEY, {
         expiresIn: 86400 // expires in 24 hours
       });
       res.status(200).send({
@@ -58,7 +58,7 @@ exports.signin = async (req, res) => {
         reason: "Invalid Password!"
       });
     }
-    const token = jwt.sign({ id: user.id }, config.secret, {
+    const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
       expiresIn: 86400 // expires in 24 hours
     });
     return res.status(200).send({
