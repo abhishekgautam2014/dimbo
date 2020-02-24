@@ -1,6 +1,6 @@
 {
     "name": "@abhishekgautam76/node-star",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Create crud from command line",
     "main": "cli.js",
     "bin": {
