@@ -42,6 +42,15 @@ class Auth extends Command {
             if (err) throw err;
         })
 
+        //create migration filr for auth
+        const fieldString = "name:string,email:string,password:string";
+        try {
+            await execa(`npx sequelize-cli model:generate --name User --attributes ${fieldString}`)
+        } catch (error) {
+            console.log(error)
+        }
+
+        //create model file for auth
     }
 }
 
