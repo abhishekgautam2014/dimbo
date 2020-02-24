@@ -58,7 +58,7 @@ class Init extends Command {
                 title: 'Installing Dependencies',
                 task: async () => {
                     try {
-                        await execa("npm install express cors dotenv body-parser nodemon helmet sequelize")
+                        await execa("npm install express cors dotenv body-parser nodemon helmet sequelize jsonwebtoken bcryptjs")
                     } catch (error) {
                         console.log(error)
                     }
