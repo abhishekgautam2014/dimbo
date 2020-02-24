@@ -157,3 +157,23 @@ exports.signin = async (req, res) => {
   }
 };`;
 };
+
+exports.authRouteTemplate = function () {
+  return `
+module.exports = function(app) {
+
+  const registerController = require("./registerController.js");
+  const loginController = require("./loginController.js");
+  
+  
+  app.post(
+      "/api/register",
+      registerController.signup
+  );
+  app.post(
+      "/api/login",
+      loginController.signin
+  );
+  
+}`;
+}

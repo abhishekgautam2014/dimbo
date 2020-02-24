@@ -42,6 +42,10 @@ class Auth extends Command {
             if (err) throw err;
         })
 
+        fs.writeFile(`auth/authRouter.js`, templates.authRouteTemplate(), function (err) {
+            if (err) throw err;
+        })
+
         //create migration filr for auth
         const fieldString = "name:string,email:string,password:string";
         try {
@@ -50,7 +54,12 @@ class Auth extends Command {
             console.log(error)
         }
 
-        //create model file for auth
+        const routerPath = process.cwd() + "/router/router.js";
+        //write authroutes in main route file
+        const addRoute = `    require("../auth/authRouter")(app);`
+        await insertLine(routerPath).content(addRoute).at(5);
+
+        console.info(`Authentication api created successfully.`);
     }
 }
 
