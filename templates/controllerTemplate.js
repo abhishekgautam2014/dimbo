@@ -8,6 +8,24 @@ function toUpper(str) {
         .join(" ");
 }
 
+exports.defaultControllerTemplate = function (name) {
+    return `
+exports.functionName = async (req, res, next) => {
+ 
+   
+    
+};`;
+};
+
+exports.defaultRouteTemplate = function (name) {
+    return `
+    
+module.exports = function(app) {
+
+    
+}`;
+}
+
 exports.controllerTemplate = function (name) {
     const modelName = toUpper(name).substring(0, name.length - 1);
     const modelName1 = name.substring(0, name.length - 1);
