@@ -16,10 +16,6 @@ Ace.addCommand(require('./commands/auth'))
 
 
 
-
-
-
-
 // Boot ace to execute commands
 Ace.wireUpWithCommander()
 Ace.invoke()
