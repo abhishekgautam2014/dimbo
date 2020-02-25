@@ -14,7 +14,7 @@ $ npm install -g dimbo
 And then you should be able to run the CLI with
 
 ```bash
-$ ns
+$ dimbo
 ```
 
 ### Usage
