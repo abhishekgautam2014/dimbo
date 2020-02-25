@@ -14,7 +14,8 @@ class Controller extends Command {
      * The words flags and aliases mean the same thing in this context 😃
      */
     static get signature() {
-        return `create:controller`;
+        return `create:controller
+        { name: New Controller }`;
     }
 
     /**
@@ -22,7 +23,7 @@ class Controller extends Command {
      * about the command
      */
     static get description() {
-        return "Create Controller";
+        return "Create New Controller";
     }
 
     /**

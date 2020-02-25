@@ -23,7 +23,7 @@ class Crud extends Command {
    * about the command
    */
   static get description() {
-    return "Create CRUD APIs";
+    return "Create CRUD API";
   }
 
   /**
