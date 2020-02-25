@@ -1,10 +1,10 @@
 {
-    "name": "@abhishekgautam76/node-star",
+    "name": "dimbo",
     "version": "1.0.3",
     "description": "Create crud from command line",
     "main": "cli.js",
     "bin": {
-        "ns": "cli.js"
+        "dimbo": "cli.js"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"

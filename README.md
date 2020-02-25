@@ -8,7 +8,7 @@ The [Nodestar] quick and easy project setup and CRUD Builder.
 Make sure you have empty Nodejs project setup by ```bash $npm init -y ```
 
 ```bash
-$ npm install -g @abhishekgautam76/node-star
+$ npm install -g dimbo
 ```
 
 And then you should be able to run the CLI with
@@ -30,14 +30,15 @@ Global Options:
   --no-ansi      Disable colored output
 
 Available Commands:
-  crud           Create CRUD API
-  init           Setup Project Structure
+  crud                Create CRUD API
+  init                Setup Project Structure.
  create
-  create:auth    Create Authentication API
+  create:auth         Create Authentication API
+  create:controller   Create New Controller
+  create:migration    Create New Migration
+  create:model        Create New Model
  db
-  db:connect     Create your database and connect
-  db:migrate     Run Migration
-  db:migration   Create Migration
-  db:model       Create Model
+  db:connect          Connect you database.
+  db:migrate          Run Migration
 
 ```
