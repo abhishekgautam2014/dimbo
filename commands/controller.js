@@ -46,7 +46,7 @@ class Controller extends Command {
         const routerPath = process.cwd() + "/router/router.js";
         // //write crudroutes in main route file
         const addRoute = `    require("../controller/${name}/${name}Router.js")(app);`
-        await insertLine(routerPath).content(addRoute).at(5);
+        await insertLine(routerPath).content(addRoute).at(3);
 
         console.info(`${name} controller created successfully.`);
     }
