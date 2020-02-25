@@ -14,7 +14,7 @@ class Migration extends Command {
      * The words flags and aliases mean the same thing in this context 😃
      */
     static get signature() {
-        return `db:migration
+        return `create:migration
       { name: New Migration }
     `;
     }
@@ -24,7 +24,7 @@ class Migration extends Command {
      * about the command
      */
     static get description() {
-        return "Create Migration";
+        return "Create New Migration";
     }
 
     /**

@@ -14,7 +14,7 @@ class Model extends Command {
      * The words flags and aliases mean the same thing in this context 😃
      */
     static get signature() {
-        return `db:model
+        return `create:model
       { name: New Model }
     `;
     }
@@ -24,7 +24,7 @@ class Model extends Command {
      * about the command
      */
     static get description() {
-        return "Create Model";
+        return "Create New Model";
     }
 
     /**
