@@ -63,7 +63,7 @@ class Init extends Command {
                         console.log(error)
                     }
                     try {
-                        await execa("npm install -g sequelize-cli")
+                        await execa("npm install sequelize-cli")
                     } catch (error) {
                         console.log(error)
                     }

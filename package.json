@@ -1,6 +1,6 @@
 {
     "name": "dimbo",
-    "version": "1.0.4",
+    "version": "1.0.6",
     "description": "Create crud from command line",
     "main": "cli.js",
     "bin": {
